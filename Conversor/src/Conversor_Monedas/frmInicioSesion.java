@@ -44,7 +44,7 @@ public class frmInicioSesion extends JFrame {
 	public frmInicioSesion() {
 		setTitle("Inicio de Sesión");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 212);
+		setBounds(100, 100, 377, 204);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(128, 255, 128));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -52,16 +52,16 @@ public class frmInicioSesion extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		lblUsuario.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblUsuario.setBounds(81, 11, 98, 31);
+		lblUsuario.setBounds(66, 11, 98, 31);
 		contentPane.add(lblUsuario);
 		
 		JLabel lblContraseña = new JLabel("Contraseña");
 		lblContraseña.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblContraseña.setBounds(81, 53, 98, 14);
+		lblContraseña.setBounds(66, 50, 98, 14);
 		contentPane.add(lblContraseña);
 		
 		txtUsuario = new JTextField();
-		txtUsuario.setBounds(223, 16, 119, 20);
+		txtUsuario.setBounds(208, 16, 119, 20);
 		contentPane.add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
@@ -72,7 +72,7 @@ public class frmInicioSesion extends JFrame {
 				char[] clave = jpassClave.getPassword();
 				String claveFinal = new String(clave);
 				
-				if(txtUsuario.getText().equals("Michael") && claveFinal.equals("Kramer2022")) {
+				if(txtUsuario.getText().equals("invitado") && claveFinal.equals("123456")) {
 					dispose();
 					JOptionPane.showMessageDialog(null, "Bievenido al Sistema", "INFORMACION",  JOptionPane.INFORMATION_MESSAGE);
 					
@@ -87,7 +87,7 @@ public class frmInicioSesion extends JFrame {
 							
 			}
 		});
-		btnIngresar.setBounds(81, 106, 89, 31);
+		btnIngresar.setBounds(66, 125, 89, 31);
 		contentPane.add(btnIngresar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
@@ -97,11 +97,16 @@ public class frmInicioSesion extends JFrame {
 				dispose();
 			}
 		});
-		btnCancelar.setBounds(244, 106, 98, 31);
+		btnCancelar.setBounds(208, 125, 98, 31);
 		contentPane.add(btnCancelar);
 		
 		jpassClave = new JPasswordField();
-		jpassClave.setBounds(223, 47, 119, 20);
+		jpassClave.setBounds(208, 47, 119, 20);
 		contentPane.add(jpassClave);
+		
+		JLabel lblMensaje2 = new JLabel("Acceso a Todos: Usuario invitado, Contraseña 123456");
+		lblMensaje2.setForeground(Color.BLUE);
+		lblMensaje2.setBounds(10, 89, 339, 14);
+		contentPane.add(lblMensaje2);
 	}
 }

@@ -5,9 +5,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import Conversor_Hora_Paises.frmConversorTiempo;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -16,12 +13,17 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
 public class frmMenu extends JFrame {
 
 	protected static double monto;
+	protected static double numMtKm;
 	private JPanel contentPane;
 
 	/**
@@ -60,7 +62,7 @@ public class frmMenu extends JFrame {
 		contentPane.add(lblMensajePrincipal);
 		
 		JComboBox cboTipoConversion = new JComboBox();
-		cboTipoConversion.setModel(new DefaultComboBoxModel(new String[] {"Conversor de Monedas", "Conversor de Tiempo"}));
+		cboTipoConversion.setModel(new DefaultComboBoxModel(new String[] {"Conversor de Monedas", "Conversor de Distancia Metros o Kilómetros"}));
 		cboTipoConversion.setBounds(57, 37, 312, 22);
 		contentPane.add(cboTipoConversion);
 		
@@ -82,11 +84,23 @@ public class frmMenu extends JFrame {
 					} catch (NumberFormatException mensaje){
 						JOptionPane.showMessageDialog(null, "Ingrese solo números", "ADVERTENCIA", JOptionPane.ERROR_MESSAGE);				
 										
-					}	} else if (item.equalsIgnoreCase("Conversor de Tiempo")) {
+					}	} else if (item.equalsIgnoreCase("Conversor de Distancia Metros o Kilómetros")) {
 						
-					frmConversorTiempo conversorTiempo = new frmConversorTiempo();
-					dispose();
-					conversorTiempo.setVisible(true);					
+						
+						try {
+						
+							numMtKm = Double.parseDouble(JOptionPane.showInputDialog(null,"Ingrese la cantidad de metros o Kilometros "
+								+ "que desea convertir: ", 0));	
+						dispose();
+												
+					   frmConversorTiempo conversorTiempo = new frmConversorTiempo();
+					   conversorTiempo.setVisible(true);
+						} catch(NumberFormatException mensaje) {
+							
+								JOptionPane.showMessageDialog(null, "Ingrese solo números", "ADVERTENCIA", JOptionPane.ERROR_MESSAGE);
+						}
+						
+										   
 														
 				}
 				
